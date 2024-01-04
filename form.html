@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://unpkg.com/vue@next" defer></script>
+        <script src="./form.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- <input type="number" v-model="year" /><br /> -->
+            <!-- 日本語反映させるバインド -->
+            <input type="text" v-on:input="yearInputHandler" v-bind:value="year" />
+            {{year}}
+            <textarea>{{massage}}</textarea>
+            入力内容: {{massage}}<br />
+            <p>ケーキはお好きですか?: {{answer}}</p>
+            <input type="checkbox" v-model="answer" true-value="はい" false-value="いいえ" />
+            <label for="cake">チェックお願いします</label>
+        </div>
+    </body>
+</html>

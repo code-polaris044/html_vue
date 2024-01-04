@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>リストサンプル</title>
+    </head>
+    <body>
+        <div id="sample">
+            <ul>
+                <li v-for="item in list">{{item.name}}{{item.price}}円</li>
+            </ul>
+        </div>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        list: [
+                            { name: "商品A", price: 1000 },
+                            { name: "商品B", price: 2000 },
+                            { name: "商品C", price: 980 },
+                        ],
+                    };
+                },
+            });
+            const vm = app.mount("#sample");
+        </script>
+    </body>
+</html>

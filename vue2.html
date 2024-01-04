@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://unpkg.com/vue@next" defer></script>
+        <script src="./vue2.js" defer></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <div v-show="show">
+                <p>now1: "{{now1()}}"</p>
+                <p>now2: "{{now2}}"</p>
+            </div>
+            <template v-if="stock >= 1">
+                <span class="num">残り{{stock}}個</span>
+                <button class="btn" v-on:click="onDeleItem">削除</button>
+            </template>
+            <!-- <template v-else> 在庫切れ </template><br /> -->
+            {{message}}<br />
+
+            ウィンドウの横幅: {{width}}<br />
+            ウィンドウの高さ: {{height}}<br />
+            <p>マウスカーソルの位置: {{point.x}}, {{point.y}}</p>
+        </div>
+        <!-- <div id="app1">
+            <span class="num1"></span>
+            <button class="btn1">削除</button>
+        </div> -->
+    </body>
+</html>

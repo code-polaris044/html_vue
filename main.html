@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/vue@next" defer></script>
+        <script src="./main.js" defer></script>
+        <link rel="stylesheet" href="./style.css" />
+        <!-- <script src="./test.js" defer></script> -->
+        <title>サンプル</title>
+    </head>
+    <body>
+        <div id="app">
+            {{lang == "ja" ? message_ja : message_en}} <input type="text" v-bind:value="message" />
+            <p v-bind:style="{fontSize: pSize}">文字サイズは{{pSize}}です。</p>
+            <p v-bind:class="{capitalize: isCapital}">test vue</p>
+            <table border="1">
+                <tr>
+                    <th>商品コード</th>
+                    <th>商品名</th>
+                </tr>
+                <tr v-for="el in list">
+                    <td>{{el.code}}</td>
+                    <td>{{el.name}}</td>
+                </tr>
+            </table>
+            <table border="1">
+                <tr>
+                    <th>商品コード</th>
+                    <th>商品名</th>
+                </tr>
+                <tr v-for="(item, index) in list">
+                    <td>{{item.code}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
+            </table>
+            <span v-if="stock >= 1">残り{{stock}}個です</span>
+            <span v-else>在庫切れです。</span><br />
+            <span v-show="price < 1000">セール実施中</span>
+            {{$filters.number_format(price)}},<br />
+            調べたい年 : <input type="number" v-model="year" />
+            <div v-if="isUrudoshi">{{yaer}}年はうるう年です。</div>
+            <div v-show="show">
+                <p>now1: "{{now1()}}"</p>
+                <p>now2: "{{now2}}"</p>
+            </div>
+        </div>
+    </body>
+</html>
